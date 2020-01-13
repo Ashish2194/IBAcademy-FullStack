@@ -21,19 +21,23 @@ class CommonUtils {
     }
 }
 function eventListeners () {
-    commonUtil.addEvent(passId, 'keyup', keyUp);
+    // commonUtil.addEvent(passId, 'keyup', keyUp);
     // commonUtil.addEvent(passId, 'focus', focusC);
     // commonUtil.addEvent(passId, 'blur', blurC)
 }
 /*Just need to check the password validations since required field is already handled */
-let keyUp = function () {
-    let validateInput = new ValidateUserInput();
-    validateInput.checkUserInput();
-}
+// let keyUp = function () {
+//     let validateInput = new ValidateUserInput();
+//     validateInput.checkUserInput();
+// }
 /*Login Click */
 logIn.addEventListener('click', function (event) {
     event.preventDefault();
-    alert("Login Functionality to be implemented sooon. Stay Tuned!");
+    let validateInput = new ValidateUserInput();
+    if(validateInput.checkUserInput())
+      alert("Login Functionality to be implemented sooon. Stay Tuned!");
+    else
+        alert("Check the errors and try again!!!");
 });
 
 class ValidateUserInput {
@@ -53,6 +57,7 @@ class ValidateUserInput {
             commonUtil.addClass(passErrorId3, "password-error-hidden");
             commonUtil.removeClass(passErrorId4, "password-error-show");
             commonUtil.addClass(passErrorId4, "password-error-hidden");
+            return true; // All valid
         } else {
             if(passLenFlag) {
                 commonUtil.removeClass(passErrorId1, "password-error-show");
@@ -82,13 +87,14 @@ class ValidateUserInput {
                 commonUtil.removeClass(passErrorId4, "password-error-hidden");
                 commonUtil.addClass(passErrorId4, "password-error-show");
             }
+            return false; // Not valid
         }     
     }
 }
 /*Main Function to initialize everything */
  function main() {
     commonUtil = new CommonUtils();
-    eventListeners();
+    // eventListeners();
   }
   main();
 })();
