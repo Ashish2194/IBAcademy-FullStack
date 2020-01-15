@@ -12,8 +12,8 @@
     <div class="wrapper fadeInDown">
             <div id="formContent">
                 <!-- Tabs Titles -->
-                <h2 class="active"> Sign In </h2>
-                <h2 class="inactive underlineHover">Sign Up </h2>
+                <h2 id="logInTab" class="active"> Sign In </h2>
+                <h2 id="signUpTab" class="inactive underlineHover">Sign Up </h2>
             
                 <!-- Icon -->
                 <div class="fadeIn first">
@@ -21,7 +21,7 @@
                 </div>
             
                 <!-- Login Form -->
-                <form>
+                <form class="showLogin" id="loginForm">
                 <input type="text" id="login" class="fadeIn second" placeholder="username" required>
                 <input type="password" id="password" class="fadeIn third" placeholder="password" required>
                 <div class="error-container">
@@ -33,10 +33,26 @@
                 
                 <input type="submit" class="fadeIn fourth" value="Log In" id="logIn">
                 </form>
+                <form class="hideSignUp" id="signUpForm">
+                    <input type="text" id="usrName" class="fadeIn second" placeholder="username" required>
+                    <input type="email" id="email" class="fadeIn third" placeholder="email" required>
+                    <input type="password" id="passwrd" class="fadeIn third" placeholder="password" required>
+                    <input type="password" id="rePasswrd" class="fadeIn third" placeholder="confirm password" required>
+                    
+                    <div class="error-container">
+                        <div class="password-error-hidden" id="passError5">Password should contain atleast 8 characters</div>
+                        <div class="password-error-hidden" id="passError6">Password should contain atleast one uppercase character</div>
+                        <div class="password-error-hidden" id="passError7">Password should contain atleast one lowercase character</div>
+                        <div class="password-error-hidden" id="passError8">Password should contain atleast one number</div>
+                        <div class="password-error-hidden" id="rePassError">Passwords do not match</div>
+                    </div>
+
+                    <input type="submit" class="fadeIn fourth" value="Sign Up" id="signUp">
+                </form>
             
                 <!-- Remind Passowrd -->
                 <div id="formFooter">
-                <a class="underlineHover" href="#" onclick="alert('Forgot password to be implemented soon! Stay Tuned!');">Forgot Password?</a>
+                <a id="forgotPass" class="underlineHover" href="#" onclick="alert('Forgot password to be implemented soon! Stay Tuned!');">Forgot Password?</a>
                 </div>
             
             </div>
